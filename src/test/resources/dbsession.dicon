@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN"
+	"http://www.seasar.org/dtd/components21.dtd">
+<components>
+	<include path="j2ee.dicon"/>
+	<include path="s2jdbc.dicon"/>
+	<component name="dataSource" class="org.seasar.extension.dbcp.impl.DataSourceImpl" />
+	<!-- <component class="org.seasar.extension.httpsession.impl.DbSessionStateManagerImpl"> -->
+	<component class="com.m3.m3commons.s2.extension.httpsession.impl.SAStrutsSessionStateManagerImpl" instance="singleton">
+		<property name="dataSource">dataSource</property>
+		<aspect>j2ee.requiresNewTx</aspect>
+	</component>
+</components>

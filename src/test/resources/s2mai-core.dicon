@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.3//EN"
+	"http://www.seasar.org/dtd/components23.dtd">
+<components namespace="s2mai">
+	<include path="org/seasar/mai/transport/transport.dicon"/>
+	<!--<include path="org/seasar/mai/transport/transport-xa.dicon"/>-->
+	<include path="mailTemplate.dicon"/>		
+	<include path="mailProperties.dicon"/>
+	<component class="org.seasar.mai.meta.impl.MaiMetaDataFactoryImpl"/>
+	<component class="org.seasar.mai.annotation.impl.AnnotationReaderFactoryImpl"/>
+	<component class="org.seasar.mai.property.impl.PropertyWriterForBeanImpl" />	
+	<component class="org.seasar.mai.property.impl.PropertyWriterForAnnotationImpl" />
+	<component class="org.seasar.mai.property.mail.impl.MailPropertyWriterFactoryImpl" />
+	<component name="fromWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterFrom" />
+	<component name="toWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterTo" />
+	<component name="ccWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterCc" />
+	<component name="bccWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterBcc" />
+	<component name="replyToWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterReplyTo" />
+	<component name="subjectWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterSubject" />
+	<component name="returnPathWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterReturnPath" />
+	<component name="attachedFileWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterAttachedFile" />	
+	<component name="XHeaderWriter" class="org.seasar.mai.property.mail.impl.MailPropertyWriterXHeader" />
+	<component class="org.seasar.mai.property.server.impl.ServerPropertyWriterFactoryImpl" />
+	<component name="hostWriter" class="org.seasar.mai.property.server.impl.ServerPropertyWriterHost" />
+	<component name="portWriter" class="org.seasar.mai.property.server.impl.ServerPropertyWriterPort" />
+	<component name="usernameWriter" class="org.seasar.mai.property.server.impl.ServerPropertyWriterUsername" />
+	<component name="passwordWriter" class="org.seasar.mai.property.server.impl.ServerPropertyWriterPassword" />
+	<component name="messageIdWriter" class="org.seasar.mai.property.server.impl.ServerPropertyWriterMessageId" />				
+</components>

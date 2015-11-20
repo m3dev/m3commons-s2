@@ -1,0 +1,34 @@
+*t*App Engineは1インスタンスあたり1スレッドでリクエストを処理している?
+Google App EngineでThreadのidとhashCodeを調べると常に11と28409161です。これは、常にリクエストは、1インスタンスあたり1スレッドで処理しているということなのでしょうか。
+
+#
+10-27 02:10AM 31.422
+
+[slim3demo/1.337325268126711649].<stdout>: 8391329 start
+
+
+#
+I 10-27 02:10AM 31.422
+
+[slim3demo/1.337325268126711649].<stdout>: UUID:8b26f274-4ef1-425e-ba88-0be6480110e9
+
+
+#
+I 10-27 02:10AM 31.422
+
+[slim3demo/1.337325268126711649].<stdout>: sessionId:hqZgD4X7jhIwOCIneVbmvw
+
+
+#
+I 10-27 02:10AM 31.422
+
+[slim3demo/1.337325268126711649].<stdout>: thread.hashCode:28409161
+
+
+#
+I 10-27 02:10AM 41.423
+
+[slim3demo/1.337325268126711649].<stdout>: 8391329 end
+
+
+

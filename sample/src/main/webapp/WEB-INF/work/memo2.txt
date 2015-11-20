@@ -1,0 +1,28 @@
+/**
+   * Configures the local libraries.
+   */
+  public void configure() {
+    ClassLoader classLoader = getClass().getClassLoader();
+    if (!(classLoader instanceof URLClassLoader)) {
+      throw new KtrS3UnitException(
+        "The classLoader is not an instance of URLClassLoader.");
+    }
+
+    URLClassLoader urlClassLoader = (URLClassLoader) classLoader;
+    List<URL> currentUrls = Arrays.asList(urlClassLoader.getURLs());
+
+    List<URL> urlsToAdd = prepareURLsToAdd();
+    for (URL url : urlsToAdd) {
+      if (!currentUrls.contains(url)) {
+        try {
+          Method m =
+            URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
+          m.setAccessible(true);
+          m.invoke(urlClassLoader, url);
+        } catch (Exception e) {
+          throw new KtrS3UnitException("Cannot addURL to classloader.", e);
+        }
+      }
+    }
+  }
+

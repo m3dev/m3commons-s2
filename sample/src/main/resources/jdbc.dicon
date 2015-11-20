@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR2.1//DTD S2Container//EN" "http://www.seasar.org/dtd/components21.dtd">
+<components namespace="jdbc">
+  <include path="jta.dicon"/>
+
+  <!-- for PostgreSQL -->
+  <!--
+  createdb m3commons-s2-sample
+  createuser m3commons-user -W # password
+  -->
+  <component name="xaDataSource" class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
+    <property name="driverClassName">"org.postgresql.Driver"</property>
+    <property name="URL">"jdbc:postgresql://localhost/m3commons_s2_sample"</property>
+    <property name="user">"m3commons_s2_user"</property>
+    <property name="password">"password"</property>
+  </component>
+
+  <component name="connectionPool"
+    class="org.seasar.extension.dbcp.impl.ConnectionPoolImpl">
+    <property name="timeout">3000</property>
+    <property name="maxPoolSize">10</property>
+    <property name="allowLocalTx">true</property>
+  </component>
+
+  <component name="DataSource" class="org.seasar.extension.dbcp.impl.DataSourceImpl"/>
+
+  <component name="queryAnalyzer" class="com.m3.m3commons.s2.s2jdbc.analyzer.impl.PostgreDialectQueryAnalyzer">
+    <property name="loggingOnly">true</property>
+  </component>
+
+</components>

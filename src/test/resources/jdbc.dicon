@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
+	"http://www.seasar.org/dtd/components24.dtd">
+<components namespace="jdbc">
+	<include path="jta.dicon"/>
+	<!-- for PostgreSQL -->
+	<component name="xaDataSource"
+		class="org.seasar.extension.dbcp.impl.XADataSourceImpl">
+		<property name="driverClassName">"org.postgresql.Driver"</property>
+        <property name="URL">"jdbc:postgresql://localhost:5432/m3commons_s2"</property>
+        <property name="user">"user"</property>
+        <property name="password">"password"</property>
+    </component>
+	<component name="connectionPool"
+		class="org.seasar.extension.dbcp.impl.ConnectionPoolImpl">
+		<property name="timeout">600</property>
+		<property name="maxPoolSize">5</property>
+		<property name="allowLocalTx">true</property>
+		<destroyMethod name="close"/>
+	</component>
+	<component name="DataSource" class="org.seasar.extension.dbcp.impl.DataSourceImpl"/>
+</components>

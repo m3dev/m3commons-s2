@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN" 
+	"http://www.seasar.org/dtd/components24.dtd">
+<components>
+	<include path="convention.dicon"/> 
+	<include path="aop.dicon"/>
+	<include path="j2ee.dicon"/>
+	<include path="s2jdbc.dicon"/>
+	<include path="s2mai.dicon"/>    
+	<include path="dbsession.dicon"/> 
+
+	<component name="queryAnalyzer" 
+		class="com.m3.m3commons.s2.s2jdbc.analyzer.impl.PostgreDialectQueryAnalyzer">
+		<property name="loggingOnly">true</property>
+	</component>
+  
+	<component name="actionMessagesThrowsInterceptor" 
+		class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor"/>
+	
+	<component name="taskEntityService" 
+		class="com.m3.m3commons.s2.s2jdbc.service.TaskEntityService"/>
+      
+</components>
